@@ -1,6 +1,6 @@
 package rides;
 
-public class Rollercoaster extends Ride {
+public class Rollercoaster extends Ride implements Rideable{
 
     String name;
 
@@ -11,5 +11,10 @@ public class Rollercoaster extends Ride {
 
     public String getName() {
         return name;
+    }
+
+
+    public String ride() {
+        return "I am riding the " + this.name;
     }
 }

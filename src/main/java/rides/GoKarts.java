@@ -1,6 +1,6 @@
 package rides;
 
-public class GoKarts extends Ride {
+public class GoKarts extends Ride implements Rideable {
 
     String name;
 
@@ -8,4 +8,14 @@ public class GoKarts extends Ride {
         super(price, minimumAge, minimumHeight);
         this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String ride(){
+        return "I am go-karting in the " + this.name;
+    }
+
+
 }

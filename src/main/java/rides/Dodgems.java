@@ -1,6 +1,6 @@
 package rides;
 
-public class Dodgems extends Ride {
+public class Dodgems extends Ride implements Rideable {
 
     String name;
 
@@ -8,4 +8,13 @@ public class Dodgems extends Ride {
         super(price, minimumAge, minimumHeight);
         this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String ride(){
+        return "I am bashing on the" + this.name;
+    }
+
 }
