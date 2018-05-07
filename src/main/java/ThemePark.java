@@ -30,11 +30,11 @@ public class ThemePark {
         return customers;
     }
 
-    public void addRidesToPark(Ride ride){
+    public void addRidesToPark(Ride ride) {
         this.rides.add(ride);
     }
 
-    public int numberOfRides(){
+    public int numberOfRides() {
         return this.rides.size();
     }
 
@@ -42,33 +42,33 @@ public class ThemePark {
         this.customers.add(guest);
     }
 
-    public int numberOfCustomersInPark(){
-        return  this.customers.size();
+    public int numberOfCustomersInPark() {
+        return this.customers.size();
     }
 
-    public int getMoneyInTill(){
+    public int getMoneyInTill() {
         return till;
     }
 
-    public boolean guestCanRideRide(Adult customer, Ride ride){
-        if (customer.getAge() >= ride.getMinimumAge() && customer.getHeight() >= ride.getMinimumHeight()){
+    public boolean guestCanRideRide(Adult customer, Ride ride) {
+        if (customer.getAge() >= ride.getMinimumAge() && customer.getHeight() >= ride.getMinimumHeight()) {
             return true;
         } else {
             return false;
         }
     }
 
-    public int canCustomerPayForRide(Adult customer, Ride ride){
-        if (guestCanRideRide(customer, ride) == true && customer.getWallet() >= ride.getPrice())
-            return customer.customerPaysForRide(ride);
-        return 0;
+    public boolean canCustomerPayForRide(Adult customer, Ride ride) {
+        if (guestCanRideRide(customer, ride) == true && customer.getWallet() >= ride.getPrice()) {
+            return true;
+        }
+        return false;
     }
 
-    public int moneyAddsToTillWhenGuestPays(Adult customer, Ride ride){
-        return till += canCustomerPayForRide(customer, ride);
-    }
+    public void moneyAddsToTillWhenGuestPays(Adult customer, Ride ride) {
+        if (canCustomerPayForRide(customer, ride) == true) {
+            till += ride.getPrice();
 
-//    public int CustomerPaysAndRides(){
-//        return
-//    }
+        }
+    }
 }

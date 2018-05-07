@@ -44,8 +44,6 @@ public class ThemeParkTest {
 
     @Test
     public void customerPaysForRideAndAddsToTill() {
-        themepark.canCustomerPayForRide(guest1, ride1);
-        assertEquals(10, guest1.getWallet());
         themepark.moneyAddsToTillWhenGuestPays(guest1, ride1);
         assertEquals(5, themepark.till);
     }
