@@ -43,8 +43,18 @@ public class ThemeParkTest {
     }
 
     @Test
+    public void getNumberOfRides() {
+        assertEquals(3, themepark.getRides().size());
+    }
+
+    @Test
+    public void getNumberOfGuests() {
+        assertEquals(2, themepark.getCustomers().size());
+    }
+
+    @Test
     public void customerPaysForRideAndAddsToTill() {
         themepark.moneyAddsToTillWhenGuestPays(guest1, ride1);
-        assertEquals(5, themepark.till);
+        assertEquals(5, themepark.getMoneyInTill());
     }
 }

@@ -6,12 +6,12 @@ import java.util.ArrayList;
 
 public class ThemePark {
 
-    String name;
-    ArrayList<Ride> rides;
-    ArrayList<Customer> customers;
-    int till;
+    private String name;
+    private ArrayList<Ride> rides;
+    private ArrayList<Customer> customers;
+    private int till;
 
-    public ThemePark(String name) {
+    ThemePark(String name) {
         this.name = name;
         rides = new ArrayList<>();
         customers = new ArrayList<>();
@@ -34,16 +34,8 @@ public class ThemePark {
         this.rides.add(ride);
     }
 
-    public int numberOfRides() {
-        return this.rides.size();
-    }
-
     public void addGuestToPark(Adult guest) {
         this.customers.add(guest);
-    }
-
-    public int numberOfCustomersInPark() {
-        return this.customers.size();
     }
 
     public int getMoneyInTill() {
@@ -51,24 +43,14 @@ public class ThemePark {
     }
 
     public boolean guestCanRideRide(Adult customer, Ride ride) {
-        if (customer.getAge() >= ride.getMinimumAge() && customer.getHeight() >= ride.getMinimumHeight()) {
-            return true;
-        } else {
-            return false;
-        }
+        return customer.getAge() >= ride.getMinimumAge() && customer.getHeight() >= ride.getMinimumHeight();
     }
 
-    public boolean canCustomerPayForRide(Adult customer, Ride ride) {
-        if (guestCanRideRide(customer, ride) == true && customer.getWallet() >= ride.getPrice()) {
-            return true;
-        }
-        return false;
+    private boolean canCustomerPayForRide(Adult customer, Ride ride) {
+        return guestCanRideRide(customer, ride) && customer.getWallet() >= ride.getPrice();
     }
 
     public void moneyAddsToTillWhenGuestPays(Adult customer, Ride ride) {
-        if (canCustomerPayForRide(customer, ride) == true) {
-            till += ride.getPrice();
-
-        }
+        if (canCustomerPayForRide(customer, ride)) till += ride.getPrice();
     }
 }

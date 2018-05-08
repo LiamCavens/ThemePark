@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class RollercoasterTest {
     
-    Rollercoaster rollercoaster;
+    private Rollercoaster rollercoaster;
 
     @Before
     public void before() {

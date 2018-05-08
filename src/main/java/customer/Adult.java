@@ -4,7 +4,7 @@ import rides.Ride;
 
 public class Adult extends Customer {
 
-    int wallet;
+    private int wallet;
 
 
     public Adult(String name, int age, double height, int wallet) {
@@ -16,8 +16,8 @@ public class Adult extends Customer {
         return this.wallet;
     }
 
-    public int customerPaysForRide(Ride ride){
-         return this.wallet -= ride.getPrice();
+    public void customerPaysForRide(Ride ride){
+        this.wallet -= ride.getPrice();
 
     }
 }

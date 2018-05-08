@@ -2,11 +2,11 @@ package customer;
 
 public abstract class Customer {
 
-    String name;
-    int age;
-    double height;
+    private String name;
+    private int age;
+    private double height;
 
-    public Customer(String name, int age, double height) {
+    Customer(String name, int age, double height) {
         this.name = name;
         this.age = age;
         this.height = height;

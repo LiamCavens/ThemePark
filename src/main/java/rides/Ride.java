@@ -2,11 +2,11 @@ package rides;
 
 public abstract class Ride {
 
-    int price;
-    int minimumAge;
-    double minimumHeight;
+    private int price;
+    private int minimumAge;
+    private double minimumHeight;
 
-    public Ride(int price, int minimumAge, double minimumHeight) {
+    Ride(int price, int minimumAge, double minimumHeight) {
         this.price = price;
         this.minimumAge = minimumAge;
         this.minimumHeight = minimumHeight;

@@ -2,5 +2,5 @@ package rides;
 
 public interface Rideable {
 
-    public String ride();
+    String ride();
 }
